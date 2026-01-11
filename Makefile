@@ -1,15 +1,21 @@
-.PHONY: all clean build test
+.PHONY: all clean build debug release
+
+BUILD_DIR = build
+BUILD_TYPE ?= Debug
 
 all: build
 
 build:
-	mkdir -p build
-	cd build && cmake ..
-	cd build && make
+	@mkdir -p $(BUILD_DIR)
+	@cd $(BUILD_DIR) && cmake -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) ..
+	@cd $(BUILD_DIR) && make
+
+debug:
+	@$(MAKE) build BUILD_TYPE=Debug
+
+release:
+	@$(MAKE) build BUILD_TYPE=Release
 
 clean:
-	rm -rf build
-	rm -f *.log
-
-test: build
-	cd build && ctest --output-on-failure
+	@rm -rf $(BUILD_DIR)
+	@rm -f *.log
