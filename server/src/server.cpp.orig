@@ -1,0 +1,67 @@
+#include "Server.h"
+#include "MathLib.h"
+#include "Config.h"
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+
+Server::Server(int port) : port(port), running(false) {}
+
+bool Server::start() {
+    std::cout << "Сервер запущен на порту " << port << std::endl;
+    running = true;
+    
+    // Имитация работы сервера
+    while (running) {
+        // В реальности здесь был бы accept() TCP соединений
+        std::cout << "Сервер работает..." << std::endl;
+        break; // Для демонстрации
+    }
+    
+    return true;
+}
+
+void Server::stop() {
+    running = false;
+}
+
+void Server::printHelp() {
+    std::cout << "Сервер Kenguru Task\n";
+    std::cout << "Использование: server [порт]\n";
+    std::cout << "Пример: server 8080\n";
+}
+
+std::string Server::getVersion() {
+    const char* major = std::getenv("APP_VERSION_MAJOR");
+    const char* minor = std::getenv("APP_VERSION_MINOR");
+    const char* patch = std::getenv("APP_VERSION_PATCH");
+    
+    if (!major) major = "1";
+    if (!minor) minor = "0";
+    if (!patch) patch = "0";
+    
+    return std::string(major) + "." + minor + "." + patch;
+}
+
+int main(int argc, char* argv[]) {
+    // Проверка флага помощи
+    if (argc > 1 && (std::string(argv[1]) == "-h" || std::string(argv[1]) == "--help")) {
+        Server::printHelp();
+        return 0;
+    }
+    
+    // Установка порта
+    int port = 8080;
+    if (argc > 1) {
+        port = std::atoi(argv[1]);
+    }
+    
+    // Запуск сервера
+    Server server(port);
+    if (!server.start()) {
+        std::cerr << "Ошибка запуска сервера" << std::endl;
+        return 1;
+    }
+    
+    return 0;
+}

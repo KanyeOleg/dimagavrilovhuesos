@@ -1,0 +1,51 @@
+#include "MathLib.h"
+#include <algorithm>
+#include <random>
+#include <cmath>
+
+std::vector<double> MathLib::generateNumbers(int N, double S)
+{
+    std::vector<double> numbers(N);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    double sum = 0.0;
+    for (int i = 0; i < N - 1; ++i)
+    {
+        double max_val = S - sum - (N - i - 1) * 0.001;
+        std::uniform_real_distribution<> dist(0.001, max_val);
+        numbers[i] = dist(gen);
+        sum += numbers[i];
+    }
+    numbers[N - 1] = S - sum;
+
+    return numbers;
+}
+
+double MathLib::productOfKLargest(const std::vector<double>& numbers, int K)
+{
+    std::vector<double> sorted = numbers;
+    std::sort(sorted.begin(), sorted.end(), std::greater<double>());
+
+    double product = 1.0;
+    for (int i = 0; i < K && i < (int)sorted.size(); ++i)
+    {
+        product *= sorted[i];
+    }
+    return product;
+}
+
+char MathLib::checkCondition(double product)
+{
+    bool A = product < 99.0;
+    bool B = product > 0.001;
+    bool C = fabs(product - 25.0) > 0.0001;
+    bool D = fabs(product - 75.0) > 0.0001;
+
+    if (A && B && C && D) return 'E';
+    if (!A) return 'A';
+    if (!B) return 'B';
+    if (!C) return 'C';
+    if (!D) return 'D';
+    return '?';
+}

@@ -1,0 +1,56 @@
+client/src/client.cpp:1:0: information: Include file: "Client.h" not found. [missingInclude]
+#include "Client.h"
+^
+client/src/client.cpp:2:0: information: Include file: "Config.h" not found. [missingInclude]
+#include "Config.h"
+^
+client/src/client.cpp:3:0: information: Include file: "MathLib.h" not found. [missingInclude]
+#include "MathLib.h"
+^
+client/src/client.cpp:4:0: information: Include file: <iostream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <iostream>
+^
+client/src/client.cpp:5:0: information: Include file: <fstream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <fstream>
+^
+client/src/client.cpp:6:0: information: Include file: <cstdlib> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstdlib>
+^
+server/src/server.cpp:1:0: information: Include file: "Server.h" not found. [missingInclude]
+#include "Server.h"
+^
+server/src/server.cpp:2:0: information: Include file: "MathLib.h" not found. [missingInclude]
+#include "MathLib.h"
+^
+server/src/server.cpp:3:0: information: Include file: "Config.h" not found. [missingInclude]
+#include "Config.h"
+^
+server/src/server.cpp:4:0: information: Include file: <iostream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <iostream>
+^
+server/src/server.cpp:5:0: information: Include file: <fstream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <fstream>
+^
+server/src/server.cpp:6:0: information: Include file: <cstdlib> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstdlib>
+^
+math_lib/src/MathLib.cpp:1:0: information: Include file: "MathLib.h" not found. [missingInclude]
+#include "MathLib.h"
+^
+math_lib/src/MathLib.cpp:2:0: information: Include file: <algorithm> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <algorithm>
+^
+math_lib/src/MathLib.cpp:3:0: information: Include file: <random> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <random>
+^
+math_lib/src/MathLib.cpp:4:0: information: Include file: <cmath> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cmath>
+^
+common/src/Config.cpp:1:0: information: Include file: "Config.h" not found. [missingInclude]
+#include "Config.h"
+^
+common/src/Config.cpp:2:0: information: Include file: <sstream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <sstream>
+^
+nofile:0:0: information: Active checkers: 161/592 (use --checkers-report=<filename> to see details) [checkersReport]
+
